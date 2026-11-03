@@ -23,17 +23,20 @@ class MainActivity : FragmentActivity() {
             LauncherApp(
                 title = getString(R.string.moonlight),
                 packageName = getString(R.string.moonlight_app),
-                coverRes = R.drawable.moonlight_logo
+                coverRes = R.drawable.moonlight_logo,
+                backgroundRes = R.drawable.tile_moonlight_background
             ),
             LauncherApp(
                 title = getString(R.string.netflix),
                 packageName = getString(R.string.netflix_app),
-                coverRes = R.drawable.netflix_logo
+                coverRes = R.drawable.netflix_logo,
+                backgroundRes = R.drawable.tile_netflix_background
             ),
             LauncherApp(
                 title = getString(R.string.prime_video),
                 packageName = getString(R.string.prime_video_app),
-                coverRes = R.drawable.prime_video_logo
+                coverRes = R.drawable.prime_video_logo,
+                backgroundRes = R.drawable.tile_prime_background
             )
         )
 
@@ -47,9 +50,7 @@ class MainActivity : FragmentActivity() {
                         getString(R.string.youtube_app)
                     )
 
-                    if (intent != null) {
-                        startActivity(intent)
-                    }
+                    launchSafely(intent, getString(R.string.app_not_found))
                 },
                 iconRes = R.drawable.play_circle_outline,
             ),
@@ -63,15 +64,7 @@ class MainActivity : FragmentActivity() {
                         )
                     }
 
-                    try {
-                        startActivity(intent)
-                    } catch (_: ActivityNotFoundException) {
-                        Toast.makeText(
-                            this@MainActivity,
-                            "Impossibile aprire la TV",
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }
+                    launchSafely(intent, getString(R.string.tv_not_found))
                 },
                 iconRes = R.drawable.live_tv
             ),
@@ -81,10 +74,7 @@ class MainActivity : FragmentActivity() {
                     val intent =
                         Intent(android.provider.Settings.ACTION_SETTINGS)
 
-                    try {
-                        startActivity(intent)
-                    } catch (_: ActivityNotFoundException) {
-                    }
+                    launchSafely(intent, getString(R.string.settings_not_found))
                 },
                 iconRes = R.drawable.settings
             ),
@@ -124,40 +114,10 @@ class MainActivity : FragmentActivity() {
             val surface =
                 card.findViewById<android.view.View>(R.id.card_surface)
 
-            val backgroundRes = when (app.coverRes) {
-                R.drawable.moonlight_logo ->
-                    R.drawable.tile_moonlight_background
-
-                R.drawable.netflix_logo ->
-                    R.drawable.tile_netflix_background
-
-                R.drawable.prime_video_logo ->
-                    R.drawable.tile_prime_background
-
-                else ->
-                    R.drawable.app_tile_background
-            }
-
-            surface.setBackgroundResource(backgroundRes)
+            surface.setBackgroundResource(app.backgroundRes)
 
             val focusOverlay =
                 card.findViewById<android.view.View>(R.id.card_focus_overlay)
-
-            val glow =
-                card.findViewById<android.view.View>(R.id.card_glow)
-
-            surface.post {
-                val extra = (14f * resources.displayMetrics.density).toInt()
-
-                val glowParams =
-                    glow.layoutParams as android.widget.FrameLayout.LayoutParams
-
-                glowParams.width = surface.width + extra * 2
-                glowParams.height = surface.height + extra * 2
-                glowParams.gravity = android.view.Gravity.CENTER
-
-                glow.layoutParams = glowParams
-            }
 
             cardImage.setImageResource(app.coverRes)
             cardImage.imageTintList =
@@ -176,11 +136,7 @@ class MainActivity : FragmentActivity() {
                     packageManager.getLeanbackLaunchIntentForPackage(app.packageName)
                         ?: packageManager.getLaunchIntentForPackage(app.packageName)
 
-                if (launchIntent != null) {
-                    startActivity(launchIntent)
-                } else {
-                    cardTitle.setText(R.string.not_found)
-                }
+                launchSafely(launchIntent, getString(R.string.app_not_found))
             }
 
             card.setOnFocusChangeListener { _, hasFocus ->
@@ -193,9 +149,6 @@ class MainActivity : FragmentActivity() {
                 cardTitle.setTextColor(
                     (if (hasFocus) "#FFFFFF" else "#A7B3C7").toColorInt()
                 )
-
-                glow.animate().cancel()
-                glow.alpha = 0f
 
                 card.animate()
                     .scaleX(scale)
@@ -274,18 +227,37 @@ class MainActivity : FragmentActivity() {
         }
     }
 
+    private fun launchSafely(intent: Intent?, errorMessage: String) {
+        if (intent == null) {
+            Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        try {
+            startActivity(intent)
+        } catch (_: ActivityNotFoundException) {
+            Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
+        } catch (_: SecurityException) {
+            Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private var currentGreetingRes: Int? = null
+
     private fun updateGreeting() {
         val hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
 
         val greetingRes = when (hour) {
-            in 6..12 -> R.string.morning_greeting
+            in 6..11 -> R.string.morning_greeting
             in 12..17 -> R.string.afternoon_greeting
             in 18..22 -> R.string.evening_greeting
             else -> R.string.night_greeting
         }
 
-        val greetingTextView = findViewById<TextView>(R.id.greeting_text)
-        greetingTextView.setText(greetingRes)
+        if (greetingRes != currentGreetingRes) {
+            findViewById<TextView>(R.id.greeting_text).setText(greetingRes)
+            currentGreetingRes = greetingRes
+        }
     }
 
     private val timeReceiver = object : BroadcastReceiver() {

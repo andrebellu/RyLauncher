@@ -26,6 +26,9 @@
     <string name="error_fragment_message">An error occurred</string>
     <string name="dismiss_error">Dismiss</string>
     <string name="not_found">Application not found!</string>
+    <string name="app_not_found">Unable to open application</string>
+    <string name="tv_not_found">Unable to open TV</string>
+    <string name="settings_not_found">Unable to open settings</string>
 
     <!-- apps strings -->
     <string name="moonlight_app" translatable="false">com.limelight</string>

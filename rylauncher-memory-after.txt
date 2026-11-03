@@ -1,0 +1,49 @@
+Applications Memory Usage (in Kilobytes):
+Uptime: 33082660 Realtime: 36987458
+
+** MEMINFO in pid 30013 [com.example.rylauncher] **
+                   Pss  Private  Private  SwapPss     Heap     Heap     Heap
+                 Total    Dirty    Clean    Dirty     Size    Alloc     Free
+                ------   ------   ------   ------   ------   ------   ------
+  Native Heap     3640     3628        0        0     9728     4092     5635
+  Dalvik Heap    51842    51824        0        0    69895    53511    16384
+ Dalvik Other      336      336        0        0                           
+        Stack      160      160        0        0                           
+       Ashmem        2        0        0        0                           
+    Other dev        4        0        4        0                           
+     .so mmap      671      108      116        4                           
+    .apk mmap      198        0       12        0                           
+    .ttf mmap      151        0      116        0                           
+    .dex mmap     2072        4     2068        0                           
+    .oat mmap      564        0       56        0                           
+    .art mmap      954      508      268        1                           
+   Other mmap        5        4        0        0                           
+      Unknown      520      516        4        0                           
+        TOTAL    61124    57088     2644        5    79623    57603    22019
+ 
+ App Summary
+                       Pss(KB)
+                        ------
+           Java Heap:    52600
+         Native Heap:     3628
+                Code:     2480
+               Stack:      160
+            Graphics:        0
+       Private Other:      864
+              System:     1392
+ 
+               TOTAL:    61124       TOTAL SWAP PSS:        5
+ 
+ Objects
+               Views:       86         ViewRootImpl:        2
+         AppContexts:        4           Activities:        2
+              Assets:        4        AssetManagers:        2
+       Local Binders:       17        Proxy Binders:       15
+       Parcel memory:        3         Parcel count:       13
+    Death Recipients:        0      OpenSSL Sockets:        0
+            WebViews:        0
+ 
+ SQL
+         MEMORY_USED:        0
+  PAGECACHE_OVERFLOW:        0          MALLOC_SIZE:        0
+ 
