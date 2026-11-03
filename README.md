@@ -16,3 +16,7 @@ Progetto personale in sviluppo, testato su una TV Philips.
 Le app mostrate sono attualmente configurate nel codice;
 la selezione dinamica e la configurazione come Home predefinita
 non sono ancora implementate.
+
+## Anteprima
+
+![Schermata principale di RyLauncher](docs/rylauncher.png)
