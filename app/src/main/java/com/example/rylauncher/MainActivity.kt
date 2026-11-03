@@ -10,8 +10,8 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.ActivityNotFoundException
-import android.media.tv.TvContract
 import android.widget.Toast
+import androidx.core.graphics.toColorInt
 
 class MainActivity : FragmentActivity() {
 
@@ -23,23 +23,23 @@ class MainActivity : FragmentActivity() {
             LauncherApp(
                 title = getString(R.string.moonlight),
                 packageName = getString(R.string.moonlight_app),
-                coverRes = R.drawable.moonlight_cover
+                coverRes = R.drawable.moonlight_logo
             ),
             LauncherApp(
                 title = getString(R.string.netflix),
                 packageName = getString(R.string.netflix_app),
-                coverRes = R.drawable.netflix_cover
+                coverRes = R.drawable.netflix_logo
             ),
             LauncherApp(
                 title = getString(R.string.prime_video),
                 packageName = getString(R.string.prime_video_app),
-                coverRes = R.drawable.prime_video_cover
-            ),
+                coverRes = R.drawable.prime_video_logo
+            )
         )
 
         val shortcuts = listOf(
             LauncherShortcut(
-                title = "▶️ ${getString(R.string.youtube)}",
+                title = getString(R.string.youtube),
                 onClick = {
                     val intent = packageManager.getLeanbackLaunchIntentForPackage(
                         getString(R.string.youtube_app)
@@ -51,9 +51,10 @@ class MainActivity : FragmentActivity() {
                         startActivity(intent)
                     }
                 },
+                iconRes = R.drawable.play_circle_outline,
             ),
             LauncherShortcut(
-                title = "📺 ${getString(R.string.TV)}",
+                title = getString(R.string.TV),
                 onClick = {
                     val intent = Intent(Intent.ACTION_MAIN).apply {
                         setClassName(
@@ -71,19 +72,21 @@ class MainActivity : FragmentActivity() {
                             Toast.LENGTH_LONG
                         ).show()
                     }
-                }
+                },
+                iconRes = R.drawable.live_tv
             ),
             LauncherShortcut(
-                title = "⚙️ ${getString(R.string.settings_title)}",
+                title = getString(R.string.settings_title),
                 onClick = {
                     val intent =
                         Intent(android.provider.Settings.ACTION_SETTINGS)
 
                     try {
                         startActivity(intent)
-                    } catch (_: android.content.ActivityNotFoundException) {
+                    } catch (_: ActivityNotFoundException) {
                     }
                 },
+                iconRes = R.drawable.settings
             ),
         )
 
@@ -106,20 +109,67 @@ class MainActivity : FragmentActivity() {
                 row,
                 false
             )
-            val params = card.layoutParams as LinearLayout.LayoutParams
 
+            val params = card.layoutParams as LinearLayout.LayoutParams
             params.width = 0
             params.weight = 1f
-
             card.layoutParams = params
 
-            val cardImage = card.findViewById<android.widget.ImageView>(R.id.card_image)
-            val cardTitle = card.findViewById<TextView>(R.id.card_title)
+            val cardImage =
+                card.findViewById<android.widget.ImageView>(R.id.card_image)
+
+            val cardTitle =
+                card.findViewById<TextView>(R.id.card_title)
+
+            val surface =
+                card.findViewById<android.view.View>(R.id.card_surface)
+
+            val backgroundRes = when (app.coverRes) {
+                R.drawable.moonlight_logo ->
+                    R.drawable.tile_moonlight_background
+
+                R.drawable.netflix_logo ->
+                    R.drawable.tile_netflix_background
+
+                R.drawable.prime_video_logo ->
+                    R.drawable.tile_prime_background
+
+                else ->
+                    R.drawable.app_tile_background
+            }
+
+            surface.setBackgroundResource(backgroundRes)
+
+            val focusOverlay =
+                card.findViewById<android.view.View>(R.id.card_focus_overlay)
+
+            val glow =
+                card.findViewById<android.view.View>(R.id.card_glow)
+
+            surface.post {
+                val extra = (14f * resources.displayMetrics.density).toInt()
+
+                val glowParams =
+                    glow.layoutParams as android.widget.FrameLayout.LayoutParams
+
+                glowParams.width = surface.width + extra * 2
+                glowParams.height = surface.height + extra * 2
+                glowParams.gravity = android.view.Gravity.CENTER
+
+                glow.layoutParams = glowParams
+            }
 
             cardImage.setImageResource(app.coverRes)
-            cardTitle.text = app.title
+            cardImage.imageTintList =
+                if (app.coverRes == R.drawable.prime_video_logo) {
+                    android.content.res.ColorStateList.valueOf(
+                        android.graphics.Color.WHITE
+                    )
+                } else {
+                    null
+                }
 
-            card.clipToOutline = true
+            cardTitle.text = app.title
 
             card.setOnClickListener {
                 val launchIntent =
@@ -133,15 +183,33 @@ class MainActivity : FragmentActivity() {
                 }
             }
 
-            card.setOnFocusChangeListener { view, hasFocus ->
-                val scale = if (hasFocus) 1.06f else 1f
+            card.setOnFocusChangeListener { _, hasFocus ->
+                val scale = if (hasFocus) 1.04f else 1f
+                val density = resources.displayMetrics.density
+                val lift = if (hasFocus) -4f * density else 0f
 
-                view.animate()
+                focusOverlay.isSelected = hasFocus
+
+                cardTitle.setTextColor(
+                    (if (hasFocus) "#FFFFFF" else "#A7B3C7").toColorInt()
+                )
+
+                glow.animate().cancel()
+                glow.alpha = 0f
+
+                card.animate()
                     .scaleX(scale)
                     .scaleY(scale)
-                    .setDuration(150L)
+                    .translationY(lift)
+                    .setDuration(180L)
+                    .start()
+
+                surface.animate()
+                    .translationZ(if (hasFocus) 10f * density else 0f)
+                    .setDuration(180L)
                     .start()
             }
+
             row.addView(card)
         }
     }
@@ -157,30 +225,51 @@ class MainActivity : FragmentActivity() {
                 row,
                 false
             )
-            val params = card.layoutParams as LinearLayout.LayoutParams
 
+            val params = card.layoutParams as LinearLayout.LayoutParams
             params.width = 0
             params.weight = 1f
-
             card.layoutParams = params
 
-            val cardTitle = card.findViewById<TextView>(R.id.shortcut_card_title)
+            val cardTitle =
+                card.findViewById<TextView>(R.id.shortcut_card_title)
+
+            val cardIcon =
+                card.findViewById<android.widget.ImageView>(
+                    R.id.shortcut_card_icon
+                )
+
             cardTitle.text = shortcut.title
+            cardIcon.setImageResource(shortcut.iconRes)
 
             card.clipToOutline = true
+
             card.setOnClickListener {
                 shortcut.onClick()
             }
 
             card.setOnFocusChangeListener { view, hasFocus ->
-                val scale = if (hasFocus) 1.06f else 1f
+                val density = resources.displayMetrics.density
+                val scale = if (hasFocus) 1.03f else 1f
+                val lift = if (hasFocus) -3f * density else 0f
+
+                val color =
+                    (if (hasFocus) "#FFFFFF" else "#A7B3C7").toColorInt()
+
+                cardTitle.setTextColor(color)
+
+                cardIcon.imageTintList =
+                    android.content.res.ColorStateList.valueOf(color)
 
                 view.animate()
                     .scaleX(scale)
                     .scaleY(scale)
-                    .setDuration(150L)
+                    .translationY(lift)
+                    .translationZ(if (hasFocus) 6f * density else 0f)
+                    .setDuration(180L)
                     .start()
             }
+
             row.addView(card)
         }
     }

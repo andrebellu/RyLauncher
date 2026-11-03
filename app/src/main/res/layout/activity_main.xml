@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#101827"
+    android:background="@drawable/home_background"
     android:paddingStart="48dp"
     android:paddingEnd="48dp"
     android:paddingTop="36dp"
@@ -59,7 +59,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="40dp" />
+        android:layout_height="32dp" />
 
     <LinearLayout
         android:id="@+id/apps_row"
@@ -76,7 +76,7 @@
         android:id="@+id/secondary_apps_row"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:orientation="horizontal"
         android:gravity="center"
         android:paddingTop="8dp"
