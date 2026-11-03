@@ -1,0 +1,271 @@
+ACTIVITY MANAGER ACTIVITIES (dumpsys activity activities)
+Display #0 (activities from top to bottom):
+  Stack #1:
+  mFullscreen=true
+  mBounds=null
+    Task id #4164
+    mFullscreen=true
+    mBounds=null
+    mMinWidth=-1
+    mMinHeight=-1
+    mLastNonFullscreenBounds=null
+    * TaskRecord{80052b8 #4164 A=org.droidtv.zapster U=0 StackId=1 sz=1}
+      userId=0 effectiveUid=1000 mCallingUid=u0a104 mUserSetupComplete=true mCallingPackage=com.example.rylauncher
+      affinity=org.droidtv.zapster
+      intent={act=android.intent.action.VIEW dat=content://android.media.tv/channel flg=0x10000000 cmp=org.droidtv.zapster/.playtv.activity.PlayTvActivity}
+      realActivity=org.droidtv.zapster/.playtv.activity.PlayTvActivity
+      autoRemoveRecents=false isPersistable=true numFullscreen=1 taskType=0 mTaskToReturnTo=1
+      rootWasReset=false mNeverRelinquishIdentity=true mReuseTask=false mLockTaskAuth=LOCK_TASK_AUTH_PINNABLE
+      Activities=[ActivityRecord{a30fa04 u0 org.droidtv.zapster/.playtv.activity.PlayTvActivity t4164}]
+      askedCompatMode=false inRecents=true isAvailable=true
+      lastThumbnail=android.graphics.Bitmap@3a77891 lastThumbnailFile=/data/system_ce/0/recent_images/4164_task_thumbnail.png
+      stackId=1
+      hasBeenVisible=true mResizeMode=RESIZE_MODE_RESIZEABLE isResizeable=true firstActiveTime=1793732435021 lastActiveTime=1793732435021 (inactive for 2s)
+      * Hist #0: ActivityRecord{a30fa04 u0 org.droidtv.zapster/.playtv.activity.PlayTvActivity t4164}
+          packageName=org.droidtv.zapster processName=org.droidtv.zapster
+          launchedFromUid=10103 launchedFromPackage=com.example.rlauncher userId=0
+          app=ProcessRecord{8c160a2 2170:org.droidtv.zapster/1000}
+          Intent { act=android.intent.action.VIEW dat=content://android.media.tv/channel flg=0x10000000 cmp=org.droidtv.zapster/.playtv.activity.PlayTvActivity }
+          frontOfTask=true task=TaskRecord{80052b8 #4164 A=org.droidtv.zapster U=0 StackId=1 sz=1}
+          taskAffinity=org.droidtv.zapster
+          realActivity=org.droidtv.zapster/.playtv.activity.PlayTvActivity
+          baseDir=/system/app/zapster/zapster.apk
+          dataDir=/data/user/0/org.droidtv.zapster
+          stateNotNeeded=false componentSpecified=false mActivityType=0
+          compat={213dpi always-compat} labelRes=0x40208c9 icon=0x3021298 theme=0x7f0b0115
+          config={1.0 ?mcc?mnc [it_IT] ldltr sw540dp w961dp h540dp 213dpi lrg long land television -touch qwerty/v/v dpad/v s.3}
+          taskConfigOverride={1.0 ?mcc?mnc ?localeList ?layoutDir ?swdp ?wdp ?hdp ?density ?lsize ?long ?orien ?uimode ?night ?touch ?keyb/?/? ?nav/?}
+          taskDescription: iconFilename=null label="null" color=fffbaf1a
+          launchFailed=false launchCount=0 lastLaunchTime=-1h0m0s886ms
+          haveState=false icicle=null
+          state=RESUMED stopped=false delayedResume=false finishing=false
+          keysPaused=false inHistory=true visible=true sleeping=false idle=true mStartingWindowState=STARTING_WINDOW_SHOWN
+          fullscreen=true noDisplay=false immersive=false launchMode=2
+          frozenBeforeDestroy=false forceNewConfig=false
+          mActivityType=APPLICATION_ACTIVITY_TYPE
+          waitingVisible=false nowVisible=true lastVisibleTime=-2s435ms
+          connections=[ConnectionRecord{d6d58a3 u0 CR org.droidtv.epgdata/.ipepg.clientservice.NetTvIPEPGService:@c43fd2}, ConnectionRecord{a02871e u0 CR org.droidtv.settings/org.droidtv.multiview.MultiViewService:@a2d7f59}]
+          resizeMode=RESIZE_MODE_RESIZEABLE
+    Task id #4167
+    mFullscreen=true
+    mBounds=null
+    mMinWidth=-1
+    mMinHeight=-1
+    mLastNonFullscreenBounds=null
+    * TaskRecord{630b3f6 #4167 A=com.example.rylauncher U=0 StackId=1 sz=2}
+      userId=0 effectiveUid=u0a104 mCallingUid=2000 mUserSetupComplete=true mCallingPackage=null
+      affinity=com.example.rylauncher
+      intent={act=android.intent.action.MAIN cat=[android.intent.category.LEANBACK_LAUNCHER] flg=0x10000000 cmp=com.example.rylauncher/.MainActivity}
+      realActivity=com.example.rylauncher/.MainActivity
+      autoRemoveRecents=false isPersistable=true numFullscreen=2 taskType=0 mTaskToReturnTo=1
+      rootWasReset=false mNeverRelinquishIdentity=true mReuseTask=false mLockTaskAuth=LOCK_TASK_AUTH_PINNABLE
+      Activities=[ActivityRecord{9036bf1 u0 com.example.rylauncher/.MainActivity t4167}, ActivityRecord{8b05a7b u0 com.example.rylauncher/.MainActivity t4167}]
+      askedCompatMode=false inRecents=true isAvailable=true
+      lastThumbnail=android.graphics.Bitmap@fd5c3f7 lastThumbnailFile=/data/system_ce/0/recent_images/4167_task_thumbnail.png
+      stackId=1
+      hasBeenVisible=true mResizeMode=RESIZE_MODE_RESIZEABLE isResizeable=true firstActiveTime=1793730613558 lastActiveTime=1793730613558 (inactive for 1824s)
+      * Hist #1: ActivityRecord{8b05a7b u0 com.example.rylauncher/.MainActivity t4167}
+          packageName=com.example.rylauncher processName=com.example.rylauncher
+          launchedFromUid=2000 launchedFromPackage=null userId=0
+          app=ProcessRecord{7c3e264 22976:com.example.rylauncher/u0a104}
+          Intent { flg=0x10000000 cmp=com.example.rylauncher/.MainActivity }
+          frontOfTask=false task=TaskRecord{630b3f6 #4167 A=com.example.rylauncher U=0 StackId=1 sz=2}
+          taskAffinity=com.example.rylauncher
+          realActivity=com.example.rylauncher/.MainActivity
+          baseDir=/data/app/com.example.rylauncher-2/base.apk
+          dataDir=/data/user/0/com.example.rylauncher
+          stateNotNeeded=false componentSpecified=true mActivityType=0
+          compat={213dpi always-compat} labelRes=0x7f0e002a icon=0x7f070054 theme=0x7f0f013b
+          config={1.0 ?mcc?mnc [it_IT] ldltr sw540dp w961dp h540dp 213dpi lrg long land television -touch qwerty/v/v dpad/v s.3}
+          taskConfigOverride={1.0 ?mcc?mnc ?localeList ?layoutDir ?swdp ?wdp ?hdp ?density ?lsize ?long ?orien ?uimode ?night ?touch ?keyb/?/? ?nav/?}
+          taskDescription: iconFilename=null label="null" color=ff37474f
+          launchFailed=false launchCount=0 lastLaunchTime=-30m43s208ms
+          haveState=true icicle=Bundle[mParcelledData.dataSize=1172]
+          state=STOPPED stopped=true delayedResume=false finishing=false
+          keysPaused=false inHistory=true visible=false sleeping=false idle=true mStartingWindowState=STARTING_WINDOW_NOT_SHOWN
+          fullscreen=true noDisplay=false immersive=false launchMode=0
+          frozenBeforeDestroy=false forceNewConfig=false
+          mActivityType=APPLICATION_ACTIVITY_TYPE
+          waitingVisible=false nowVisible=false lastVisibleTime=-30m42s400ms
+          resizeMode=RESIZE_MODE_RESIZEABLE
+      * Hist #0: ActivityRecord{9036bf1 u0 com.example.rylauncher/.MainActivity t4167}
+          packageName=com.example.rylauncher processName=com.example.rylauncher
+          launchedFromUid=2000 launchedFromPackage=null userId=0
+          app=ProcessRecord{7c3e264 22976:com.example.rylauncher/u0a104}
+          Intent { act=android.intent.action.MAIN cat=[android.intent.category.LEANBACK_LAUNCHER] flg=0x10000000 cmp=com.example.rylauncher/.MainActivity }
+          frontOfTask=true task=TaskRecord{630b3f6 #4167 A=com.example.rylauncher U=0 StackId=1 sz=2}
+          taskAffinity=com.example.rylauncher
+          realActivity=com.example.rylauncher/.MainActivity
+          baseDir=/data/app/com.example.rylauncher-2/base.apk
+          dataDir=/data/user/0/com.example.rylauncher
+          stateNotNeeded=false componentSpecified=true mActivityType=0
+          compat={213dpi always-compat} labelRes=0x7f0e002a icon=0x7f070054 theme=0x7f0f013b
+          config={1.0 ?mcc?mnc [it_IT] ldltr sw540dp w961dp h540dp 213dpi lrg long land television -touch qwerty/v/v dpad/v s.3}
+          taskConfigOverride={1.0 ?mcc?mnc ?localeList ?layoutDir ?swdp ?wdp ?hdp ?density ?lsize ?long ?orien ?uimode ?night ?touch ?keyb/?/? ?nav/?}
+          taskDescription: iconFilename=null label="null" color=ff37474f
+          launchFailed=false launchCount=0 lastLaunchTime=-35m56s843ms
+          haveState=true icicle=Bundle[mParcelledData.dataSize=1172]
+          state=STOPPED stopped=true delayedResume=false finishing=false
+          keysPaused=false inHistory=true visible=false sleeping=false idle=true mStartingWindowState=STARTING_WINDOW_SHOWN
+          fullscreen=true noDisplay=false immersive=false launchMode=0
+          frozenBeforeDestroy=false forceNewConfig=false
+          mActivityType=APPLICATION_ACTIVITY_TYPE
+          waitingVisible=false nowVisible=false lastVisibleTime=-35m55s967ms
+          resizeMode=RESIZE_MODE_RESIZEABLE
+    Task id #4127
+    mFullscreen=true
+    mBounds=null
+    mMinWidth=-1
+    mMinHeight=-1
+    mLastNonFullscreenBounds=null
+    * TaskRecord{aba0ccd #4127 A=org.droidtv.settings U=0 StackId=1 sz=1}
+      userId=0 effectiveUid=1000 mCallingUid=u0a76 mUserSetupComplete=true mCallingPackage=org.droidtv.philipstvdrawer
+      affinity=org.droidtv.settings
+      intent={act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10a00000 cmp=org.droidtv.settings/.setupmenu.SetupMenuActivity}
+      realActivity=org.droidtv.settings/.setupmenu.SetupMenuActivity
+      autoRemoveRecents=false isPersistable=false numFullscreen=0 taskType=0 mTaskToReturnTo=1
+      rootWasReset=true mNeverRelinquishIdentity=true mReuseTask=false mLockTaskAuth=LOCK_TASK_AUTH_PINNABLE
+      Activities=[ActivityRecord{69539cb u0 org.droidtv.settings/.setupmenu.SetupMenuActivity t4127}]
+      askedCompatMode=false inRecents=true isAvailable=true
+      lastThumbnail=null lastThumbnailFile=/data/system_ce/0/recent_images/4127_task_thumbnail.png
+      stackId=1
+      hasBeenVisible=true mResizeMode=RESIZE_MODE_RESIZEABLE isResizeable=true firstActiveTime=1793710875530 lastActiveTime=1793710875530 (inactive for 21562s)
+      * Hist #0: ActivityRecord{69539cb u0 org.droidtv.settings/.setupmenu.SetupMenuActivity t4127}
+          packageName=org.droidtv.settings processName=org.droidtv.settings
+          launchedFromUid=10076 launchedFromPackage=org.droidtv.philipstvdrawer userId=0
+          app=ProcessRecord{8f8d307 2206:org.droidtv.settings/1000}
+          Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10a00000 cmp=org.droidtv.settings/.setupmenu.SetupMenuActivity }
+          frontOfTask=true task=TaskRecord{aba0ccd #4127 A=org.droidtv.settings U=0 StackId=1 sz=1}
+          taskAffinity=org.droidtv.settings
+          realActivity=org.droidtv.settings/.setupmenu.SetupMenuActivity
+          baseDir=/system/priv-app/settings/settings.apk
+          dataDir=/data/user/0/org.droidtv.settings
+          stateNotNeeded=false componentSpecified=true mActivityType=0
+          compat={213dpi always-compat} labelRes=0x40206b1 icon=0x302152c theme=0x7f0b0000
+          config={1.0 ?mcc?mnc [it_IT] ldltr sw540dp w961dp h540dp 213dpi lrg long land television -touch qwerty/v/v dpad/v s.3}
+          taskConfigOverride={1.0 ?mcc?mnc ?localeList ?layoutDir ?swdp ?wdp ?hdp ?density ?lsize ?long ?orien ?uimode ?night ?touch ?keyb/?/? ?nav/?}
+          taskDescription: iconFilename=null label="null" color=ff212121
+          launchFailed=false launchCount=0 lastLaunchTime=-5h4m32s844ms
+          haveState=true icicle=Bundle[mParcelledData.dataSize=3744]
+          state=STOPPED stopped=true delayedResume=false finishing=false
+          keysPaused=false inHistory=true visible=false sleeping=false idle=true mStartingWindowState=STARTING_WINDOW_NOT_SHOWN
+          fullscreen=false noDisplay=false immersive=false launchMode=2
+          frozenBeforeDestroy=false forceNewConfig=false
+          mActivityType=APPLICATION_ACTIVITY_TYPE
+          waitingVisible=false nowVisible=false lastVisibleTime=-5h3m26s814ms
+          connections=[]
+          resizeMode=RESIZE_MODE_RESIZEABLE
+    Task id #4117
+    mFullscreen=true
+    mBounds=null
+    mMinWidth=-1
+    mMinHeight=-1
+    mLastNonFullscreenBounds=null
+    * TaskRecord{d26b54 #4117 A=com.android.vending U=0 StackId=1 sz=1}
+      userId=0 effectiveUid=u0a29 mCallingUid=u0a19 mUserSetupComplete=true mCallingPackage=com.google.android.leanbacklauncher
+      affinity=com.android.vending
+      intent={act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.android.vending/com.google.android.finsky.tvmainactivity.TvMainActivity}
+      realActivity=com.android.vending/com.google.android.finsky.tvmainactivity.TvMainActivity
+      autoRemoveRecents=false isPersistable=true numFullscreen=1 taskType=0 mTaskToReturnTo=1
+      rootWasReset=true mNeverRelinquishIdentity=true mReuseTask=false mLockTaskAuth=LOCK_TASK_AUTH_PINNABLE
+      Activities=[ActivityRecord{7e666a1 u0 com.android.vending/com.google.android.finsky.tvmainactivity.TvMainActivity t4117}]
+      askedCompatMode=false inRecents=true isAvailable=true
+      lastThumbnail=null lastThumbnailFile=/data/system_ce/0/recent_images/4117_task_thumbnail.png
+      stackId=1
+      hasBeenVisible=true mResizeMode=RESIZE_MODE_RESIZEABLE isResizeable=true firstActiveTime=1793702282806 lastActiveTime=1793702282806 (inactive for 30154s)
+      * Hist #0: ActivityRecord{7e666a1 u0 com.android.vending/com.google.android.finsky.tvmainactivity.TvMainActivity t4117}
+          packageName=com.android.vending processName=com.android.vending
+          launchedFromUid=10019 launchedFromPackage=com.google.android.leanbacklauncher userId=0
+          app=null
+          Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.android.vending/com.google.android.finsky.tvmainactivity.TvMainActivity }
+          frontOfTask=true task=TaskRecord{d26b54 #4117 A=com.android.vending U=0 StackId=1 sz=1}
+          taskAffinity=com.android.vending
+          realActivity=com.android.vending/com.google.android.finsky.tvmainactivity.TvMainActivity
+          baseDir=/data/app/com.android.vending-2/base.apk
+          dataDir=/data/user/0/com.android.vending
+          splitDir=[/data/app/com.android.vending-2/split_config.armeabi_v7a.apk, /data/app/com.android.vending-2/split_config.it.apk]
+          stateNotNeeded=false componentSpecified=true mActivityType=0
+          compat={213dpi always-compat} labelRes=0x7f140656 icon=0x7f110001 theme=0x7f150246
+          config={1.0 ?mcc?mnc [it_IT] ldltr sw540dp w961dp h540dp 213dpi lrg long land television -touch qwerty/v/v dpad/v s.3}
+          taskConfigOverride={1.0 ?mcc?mnc ?localeList ?layoutDir ?swdp ?wdp ?hdp ?density ?lsize ?long ?orien ?uimode ?night ?touch ?keyb/?/? ?nav/?}
+          taskDescription: iconFilename=null label="null" color=ff33867b
+          launchFailed=false launchCount=0 lastLaunchTime=-7h18m53s131ms
+          haveState=true icicle=Bundle[mParcelledData.dataSize=27008]
+          state=DESTROYED stopped=true delayedResume=false finishing=false
+          keysPaused=false inHistory=true visible=false sleeping=false idle=true mStartingWindowState=STARTING_WINDOW_SHOWN
+          fullscreen=true noDisplay=false immersive=false launchMode=2
+          frozenBeforeDestroy=false forceNewConfig=false
+          mActivityType=APPLICATION_ACTIVITY_TYPE
+          waitingVisible=false nowVisible=false lastVisibleTime=-7h18m52s382ms
+          resizeMode=RESIZE_MODE_RESIZEABLE
+
+    Running activities (most recent first):
+      TaskRecord{80052b8 #4164 A=org.droidtv.zapster U=0 StackId=1 sz=1}
+        Run #3: ActivityRecord{a30fa04 u0 org.droidtv.zapster/.playtv.activity.PlayTvActivity t4164}
+      TaskRecord{630b3f6 #4167 A=com.example.rylauncher U=0 StackId=1 sz=2}
+        Run #2: ActivityRecord{8b05a7b u0 com.example.rylauncher/.MainActivity t4167}
+        Run #1: ActivityRecord{9036bf1 u0 com.example.rylauncher/.MainActivity t4167}
+      TaskRecord{aba0ccd #4127 A=org.droidtv.settings U=0 StackId=1 sz=1}
+        Run #0: ActivityRecord{69539cb u0 org.droidtv.settings/.setupmenu.SetupMenuActivity t4127}
+
+    mResumedActivity: ActivityRecord{a30fa04 u0 org.droidtv.zapster/.playtv.activity.PlayTvActivity t4164}
+
+  Stack #0:
+  mFullscreen=true
+  mBounds=null
+    Task id #4169
+    mFullscreen=true
+    mBounds=null
+    mMinWidth=-1
+    mMinHeight=-1
+    mLastNonFullscreenBounds=null
+    * TaskRecord{4ac1982 #4169 A=com.example.rylauncher U=0 StackId=0 sz=1}
+      userId=0 effectiveUid=u0a104 mCallingUid=1000 mUserSetupComplete=true mCallingPackage=android
+      affinity=com.example.rylauncher
+      intent={act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10200000 cmp=com.example.rylauncher/.MainActivity}
+      realActivity=com.example.rylauncher/.MainActivity
+      autoRemoveRecents=false isPersistable=true numFullscreen=1 taskType=1 mTaskToReturnTo=0
+      rootWasReset=true mNeverRelinquishIdentity=true mReuseTask=false mLockTaskAuth=LOCK_TASK_AUTH_PINNABLE
+      Activities=[ActivityRecord{91c08d4 u0 com.example.rylauncher/.MainActivity t4169}]
+      askedCompatMode=false inRecents=true isAvailable=true
+      lastThumbnail=null lastThumbnailFile=/data/system_ce/0/recent_images/4169_task_thumbnail.png
+      stackId=0
+      hasBeenVisible=true mResizeMode=RESIZE_MODE_RESIZEABLE isResizeable=false firstActiveTime=1793732435004 lastActiveTime=1793732435004 (inactive for 2s)
+      * Hist #0: ActivityRecord{91c08d4 u0 com.example.rylauncher/.MainActivity t4169}
+          packageName=com.example.rylauncher processName=com.example.rylauncher
+          launchedFromUid=1000 launchedFromPackage=android userId=0
+          app=ProcessRecord{7c3e264 22976:com.example.rylauncher/u0a104}
+          Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10200000 cmp=com.example.rylauncher/.MainActivity (has extras) }
+          frontOfTask=true task=TaskRecord{4ac1982 #4169 A=com.example.rylauncher U=0 StackId=0 sz=1}
+          taskAffinity=com.example.rylauncher
+          realActivity=com.example.rylauncher/.MainActivity
+          baseDir=/data/app/com.example.rylauncher-2/base.apk
+          dataDir=/data/user/0/com.example.rylauncher
+          stateNotNeeded=false componentSpecified=false mActivityType=1
+          compat={213dpi always-compat} labelRes=0x7f0e002a icon=0x7f070054 theme=0x7f0f013b
+          config={1.0 ?mcc?mnc [it_IT] ldltr sw540dp w961dp h540dp 213dpi lrg long land television -touch qwerty/v/v dpad/v s.3}
+          taskConfigOverride={1.0 ?mcc?mnc ?localeList ?layoutDir ?swdp ?wdp ?hdp ?density ?lsize ?long ?orien ?uimode ?night ?touch ?keyb/?/? ?nav/?}
+          taskDescription: iconFilename=null label="null" color=ff37474f
+          launchFailed=false launchCount=0 lastLaunchTime=-30m13s266ms
+          haveState=true icicle=Bundle[mParcelledData.dataSize=1172]
+          state=STOPPED stopped=true delayedResume=false finishing=false
+          keysPaused=false inHistory=true visible=false sleeping=false idle=true mStartingWindowState=STARTING_WINDOW_SHOWN
+          fullscreen=true noDisplay=false immersive=false launchMode=0
+          frozenBeforeDestroy=false forceNewConfig=false
+          mActivityType=HOME_ACTIVITY_TYPE
+          waitingVisible=false nowVisible=false lastVisibleTime=-13s431ms
+          resizeMode=RESIZE_MODE_RESIZEABLE
+
+    Running activities (most recent first):
+      TaskRecord{4ac1982 #4169 A=com.example.rylauncher U=0 StackId=0 sz=1}
+        Run #0: ActivityRecord{91c08d4 u0 com.example.rylauncher/.MainActivity t4169}
+
+    mLastPausedActivity: ActivityRecord{91c08d4 u0 com.example.rylauncher/.MainActivity t4169}
+
+  mFocusedActivity: ActivityRecord{a30fa04 u0 org.droidtv.zapster/.playtv.activity.PlayTvActivity t4164}
+  mFocusedStack=ActivityStack{998a893 stackId=1, 4 tasks} mLastFocusedStack=ActivityStack{998a893 stackId=1, 4 tasks}
+  mSleepTimeout=false
+  mCurTaskIdForUser={0=4171}
+  mUserStackInFront={}
+  mActivityContainers={0=ActivtyContainer{0}A, 1=ActivtyContainer{1}A}
+  mLockTaskModeState=NONE mLockTaskModeTasks[]

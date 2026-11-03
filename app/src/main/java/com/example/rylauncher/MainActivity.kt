@@ -55,21 +55,23 @@ class MainActivity : FragmentActivity() {
             LauncherShortcut(
                 title = "📺 ${getString(R.string.TV)}",
                 onClick = {
-                    val intent = Intent(
-                        Intent.ACTION_VIEW,
-                        TvContract.Channels.CONTENT_URI
-                    )
+                    val intent = Intent(Intent.ACTION_MAIN).apply {
+                        setClassName(
+                            "org.droidtv.zapster",
+                            "org.droidtv.zapster.playtv.activity.PlayTvActivity"
+                        )
+                    }
 
                     try {
                         startActivity(intent)
                     } catch (_: ActivityNotFoundException) {
                         Toast.makeText(
                             this@MainActivity,
-                            "Nessuna app disponibile per aprire i canali TV",
+                            "Impossibile aprire la TV",
                             Toast.LENGTH_LONG
                         ).show()
                     }
-                },
+                }
             ),
             LauncherShortcut(
                 title = "⚙️ ${getString(R.string.settings_title)}",
