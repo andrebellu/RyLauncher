@@ -19,7 +19,7 @@ non sono ancora implementate.
 
 ## Anteprima
 
-![Schermata principale di RyLauncher](docs/rylauncher.png)
+![Schermata principale di RyLauncher](docs/rylauncher2.png)
 
 ## Usare RyLauncher come Home
 
